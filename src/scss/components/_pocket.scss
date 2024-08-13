@@ -1,0 +1,91 @@
+.pocket {
+
+   &__container {
+      background-color: #000;
+      display: flex;
+      padding: 120px 0px 120px 45px;
+
+   }
+
+   &__img {
+      width: 445px;
+      flex-shrink: 0;
+
+      & img {
+         width: 100%;
+      }
+   }
+
+   &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 2;
+   }
+
+   &__link {
+      & h3 {
+         color: #fff;
+         text-transform: uppercase;
+         text-align: center;
+         font-size: 14px;
+         font-weight: 400;
+         letter-spacing: 2px;
+         line-height: 140%;
+      }
+
+      & p {
+         color: #fff;
+         font-size: 11px;
+         line-height: 164%;
+         text-align: center;
+      }
+   }
+
+   &__link~&__link {
+      margin-top: 50px;
+   }
+
+   &__cards {
+      margin-top: 66px;
+      display: flex;
+      gap: 40px;
+   }
+
+   &__card {
+      background: #fff;
+      padding: 20px 33px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+}
+
+.card {
+
+   &__stars {
+      margin-top: 9px;
+      width: 90px;
+      display: flex;
+      justify-content: start;
+   }
+}
+
+.card {
+
+   &__raiting {
+      margin-top: 6px;
+      font-size: 35px;
+      color: #000;
+   }
+
+   &__reviews {
+      font-size: 12px;
+      line-height: 150%;
+      color: #808080;
+      display: flex;
+      gap: 6px;
+      text-transform: uppercase;
+   }
+}

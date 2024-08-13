@@ -1,0 +1,46 @@
+.string {
+   margin: 0 auto;
+
+   &__container {
+      background-color: #C1CBE7;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+   }
+}
+
+.string p {
+   /* display: block; */
+   font-size: 20px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   text-align: center;
+   text-justify: center;
+}
+
+.header {
+   &__container {
+      background-color: #fff;
+   }
+}
+
+.nav {
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   gap: 53px;
+}
+
+.nav__link {
+   padding-top: 43px;
+   padding-bottom: 43px;
+}
+
+.nav__anchor {
+   font-size: 17px;
+   line-height: 130%;
+
+   &:hover {
+      border-bottom: #000 1px solid;
+   }
+}

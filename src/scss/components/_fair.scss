@@ -1,0 +1,23 @@
+.fair {
+
+   &__container {
+      background-color: #FCD0BA;
+      padding: 120px 117px;
+      justify-content: space-between;
+   }
+
+   &__header {
+      font-size: 56px;
+      color: #000;
+      font-weight: 400;
+      max-width: 327px;
+   }
+
+   &__img {
+      max-width: 468px;
+
+      img {
+         width: 100%;
+      }
+   }
+}

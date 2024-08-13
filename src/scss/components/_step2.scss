@@ -1,0 +1,156 @@
+.step2 {
+
+   &__container {
+      background-color: #fff;
+      flex-direction: column;
+      align-items: center;
+      padding-right: 120px;
+      padding-left: 120px;
+      padding-bottom: 240px;
+   }
+
+   &__pre-header {
+      font-size: 19px;
+      color: #000;
+      text-transform: uppercase;
+      margin-top: 240px;
+   }
+
+   &__header {
+      font-size: 55px;
+      margin-top: 31px;
+      font-weight: 400;
+      max-width: 440px;
+   }
+}
+
+.checked {
+
+   &__item {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+   }
+
+   &__text {
+      font-size: 20px;
+      color: #000;
+
+      & span {
+         font-size: 10px;
+      }
+   }
+}
+
+.card {
+
+   background-color: #CCD3E7;
+   border-radius: 12px;
+   padding-right: 139px;
+   padding-left: 42px;
+   padding-top: 55px;
+   padding-bottom: 77px;
+   margin-bottom: 48px;
+   margin-top: 80px;
+
+   width: 100%;
+   display: flex;
+   gap: 47px;
+
+   /*    &__img {
+      margin-left: 42px;
+   } */
+
+   &__info {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__pre-header {
+      font-size: 20px;
+      margin-bottom: 31px;
+      color: #000;
+      text-transform: uppercase;
+   }
+
+   &__header {
+      font-size: 45px;
+      color: #000;
+      margin-top: 22px;
+   }
+
+   &__text {
+      font-size: 16px;
+      color: #000;
+      margin-top: 36px;
+   }
+}
+
+.funds {
+   background-color: #CCD3E7;
+   border-radius: 12px;
+   padding: 35px 100px 35px 42px;
+
+   width: 100%;
+   display: flex;
+   align-items: center;
+   gap: 50px;
+   justify-content: space-between;
+
+   &__img {
+      width: 42%;
+
+      & img {
+         width: 100%;
+      }
+   }
+
+   &__info {
+      width: 53%;
+   }
+
+   &__header {
+      font-size: 45px;
+      color: #000;
+   }
+
+   &__text {
+      font-size: 20px;
+      line-height: 160%;
+      color: #000;
+      margin-top: 37px;
+   }
+}
+
+.coming-soon {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   max-width: 148px;
+   font-size: 12px;
+   height: 34px;
+   color: #000;
+   text-transform: uppercase;
+   border-radius: 17px;
+   margin-top: 25px;
+}
+
+.read-more__btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #000;
+   font-size: 16px;
+   color: #fff;
+   text-transform: uppercase;
+   max-width: 159px;
+   height: 54px;
+   border-radius: 27px;
+   margin-top: 32px;
+
+   &:hover {
+      background-color: #3e3e3e;
+   }
+}
