@@ -2,10 +2,30 @@
    margin: 0 auto;
 
    &__container {
+      position: relative;
       background-color: #C1CBE7;
       margin: 0 auto;
       display: flex;
+      /*       flex-direction: row-reverse;
+      align-items: center; */
       justify-content: center;
+   }
+
+   &__burger-img {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+
+      svg {
+         /* stroke: #8B4513; */
+         stroke: #000;
+
+         &:hover {
+            cursor: pointer;
+         }
+      }
    }
 }
 
@@ -42,5 +62,27 @@
 
    &:hover {
       border-bottom: #000 1px solid;
+   }
+}
+
+@media(max-width:1200px) {
+   .string p {
+      font-size: calc(10px + (20 - 10) * ((100vw - 360px) / (1200 - 360)));
+   }
+}
+
+@media(max-width: 576px) {
+   .string {
+      &__burger-img {
+         display: block;
+      }
+
+      & p {
+         margin-right: 74px;
+      }
+   }
+
+   .nav {
+      display: none;
    }
 }

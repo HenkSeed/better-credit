@@ -1,41 +1,50 @@
+// 1. Добавлен пакет del функция deleteAsync в замен gulp-clean
+// 2. Добавлен пакет gulp-replace для удаления "../../" в html
+// 3. Решена проблема с искажением изображений в dist
+
+// Импорт плагинов пакета Gulp
 import { src, dest, watch, parallel, series } from "gulp";
 
-// Работа с файлами стилей
+// Импорт плагинов обработки файлов препроцессора SCSS
 import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
 const scss = gulpSass(dartSass);
 
-// Объединение нескольких файлов в один,
-// сжатие и переименование итогового файла
+// Импорт плагина объединения нескольких файлов в один,
+// и сжатия и переименования итогового файла
 import concat from "gulp-concat";
 
-// Работа с файлами js
-import ugly from "gulp-uglify-es";
-const uglify = ugly.default;
+// Импорт плагина обработки файлов js
+// import ugly from "gulp-uglify-es";
+// const uglify = ugly.default;
 
-// Запускаем сервер
+// Импорт плагина локального сервера
 import bSync from "browser-sync";
 const browserSync = bSync.create();
 
-// Добавляем префиксы для совместимости версий
+// Импорт плагина добавления префиксов для совместимости версий
 import autoprefixer from "gulp-autoprefixer";
 
-// Добавляем пакет объединения файлов
+// Импорт плагина объединения файлов
 import include from "gulp-file-include";
 
-// Настраиваем очистку папки build
-// import clean from "gulp-clean";
-
+// Импорт плагина удаления файлов (папки dist командой gulp build)
 import { deleteAsync } from "del";
 
+// Импорт плагина удаления строк из файлов
+import replace from "gulp-replace";
+
+// Импорт плагина GitHub Pages
 import ghPages from "gh-pages";
 
 import path from "path";
 
+// Команда опубликования (деплоя) сайта на GitHub Pages
 export const deploy = (cb) => {
   ghPages.publish(path.join(process.cwd(), "/dist"), cb);
 };
 
+// Функция работы с файлами стилей (.scss)
 export const styles = () => {
   return (
     src("src/**/*.scss")
@@ -65,6 +74,7 @@ export const scripts = () => {
 export const html = () => {
   return src(["src/html_pages/*.html"])
     .pipe(include({ prefix: "@@" }))
+    .pipe(replace("../../", ""))
     .pipe(dest(["src"]))
     .pipe(browserSync.stream());
 };
@@ -77,6 +87,7 @@ export const html_index = () => {
     .pipe(browserSync.stream());
 };
 
+// Функция наблюдателя за изменениями проекта
 export const watching = () => {
   watch(["src/**/*.scss"], styles);
   watch(["src/js/*.js"], scripts);
@@ -84,6 +95,7 @@ export const watching = () => {
   watch(["src/main.html"], html_index);
 };
 
+// Функция локального сервера
 export const browsersync = () => {
   browserSync.init({
     server: {
@@ -92,15 +104,12 @@ export const browsersync = () => {
   });
 };
 
+// Функция очистки директории от файлов деплоя
 export const cleanDist = () => {
-  return src("dist/*").pipe(clean());
+  return deleteAsync(["dist/**", "!dist"], { dot: false });
 };
 
-export const cleanD = () => {
-  //   return deleteSync(["dist/*/"]);
-  return deleteAsync("dist/*/", { dot: false });
-};
-
+// Функция формирования папок и файлов деплоя из src (css, js, html, fonts)
 export const building = () => {
   return src(
     [
@@ -115,22 +124,21 @@ export const building = () => {
   ).pipe(dest("dist"));
 };
 
-// Искажает файлы изображений при копировании папки images из папки src в dist
+// Функция копирования папки images из папки src в dist
 export const buildImg = () => {
-  return src(
-    ["src/images/**/*"],
-    { base: "src" },
-    { encoding: false },
-    { buffer: false }
-  ).pipe(dest("dist", { encoding: false }));
+  // replaceSVGImages();
+  return src(["src/images/**/*.*"], { base: "src", encoding: false }).pipe(
+    dest("dist")
+  );
 };
 
-// export const build = series(cleanD);
-export const build = series(cleanD, building, buildImg);
-// export const build = series(cleanDist, building, buildImg);
+// Команда последовательного запуска функций формирования папки деплоя
+export const build = series(cleanDist, building, buildImg);
 
+// Функции, запускаемые по команде gulp
 export default parallel(styles, scripts, html, browsersync, watching);
 
+// Второй вариант функции с выделением последовательного формирования html
 // export default parallel(
 // 	styles,
 // 	scripts,
