@@ -6,19 +6,24 @@
       align-items: center;
       padding-right: 120px;
       padding-left: 120px;
+      padding-top: 12rem;
+      padding-bottom: 12rem;
    }
 
    &__pre-header {
       font-size: 19px;
       color: #000;
       text-transform: uppercase;
-      margin-top: 240px;
+      /* margin-top: 240px; */
    }
 
    &__header {
       font-size: 55px;
-      margin-top: 31px;
+      margin-top: 30px;
       font-weight: 400;
+      text-align: center;
+      padding-left: 20px;
+      padding-right: 20px;
    }
 }
 
@@ -27,12 +32,13 @@
    border-radius: 12px;
    padding-right: 159px;
    padding-left: 77px;
-   padding-top: 80px;
-   margin-top: 80px;
+   padding-top: 8rem;
+   margin-top: 8rem;
    margin-bottom: 48px;
 
    width: 100%;
    display: flex;
+   align-items: flex-end;
    gap: 47px;
 
    &__img {
@@ -64,6 +70,10 @@
       display: flex;
       align-items: center;
       gap: 20px;
+
+      &:last-child {
+         margin-bottom: 30px;
+      }
    }
 
    &__text {
@@ -82,11 +92,12 @@
    border-radius: 12px;
    padding-right: 99px;
    padding-left: 77px;
-   padding-top: 80px;
-   margin-bottom: 48px;
+   padding-top: 8rem;
+   margin-bottom: 4.8rem;
 
    width: 100%;
    display: flex;
+   align-items: flex-end;
    gap: 47px;
 
    &__img {
@@ -137,8 +148,130 @@
    height: 54px;
    border-radius: 27px;
    margin-top: 32px;
+   margin-bottom: 40px;
 
    &:hover {
       background-color: #3e3e3e;
+   }
+}
+
+@media(max-width: 1200px) {
+
+   .cash,
+   .thrive {
+      padding-right: calc(30px + (159 - 30) * ((100vw - 768px) / (1200 - 768)));
+
+      padding-left: calc(30px + (77 - 30) * ((100vw - 768px) / (1200 - 768)));
+
+      gap: calc(25px + (36 - 25) * ((100vw - 768px) / (1200 - 768)));
+
+      &__header {
+         font-size: calc(36px + (45 - 36) * ((100vw - 768px) / (1200 - 768)));
+      }
+
+   }
+
+   .checked {
+      &__text {
+         font-size: calc(12px + (20 - 12) * ((100vw - 360px) / (1200 - 360)));
+      }
+
+      &__item {
+         margin-top: calc(18px + (34 - 18) * ((100vw - 360px) / (1200 - 360)));
+
+         img {
+            width: calc(32px + (40 - 32) * ((100vw - 576px) / (768 - 576)));
+         }
+      }
+   }
+
+   .step1 {
+      &__container {
+         padding-right: calc(60px + (120 - 60) * ((100vw - 768px) / (1200 - 768)));
+         padding-left: calc(60px + (120 - 60) * ((100vw - 768px) / (1200 - 768)));
+      }
+   }
+}
+
+@media(max-width: 768px) {
+   .step1 {
+      &__header {
+         font-size: calc(42px + (55 - 42) * ((100vw - 360px) / (768 - 360)));
+      }
+   }
+
+   .cash,
+   .thrive {
+      padding-right: calc(10px + (30 - 10) * ((100vw - 360px) / (768 - 360)));
+
+      padding-left: calc(10px + (30 - 10) * ((100vw - 360px) / (768 - 360)));
+
+      &__img {
+         /* width: 85%; */
+         width: calc(240px + (304 - 240) * ((100vw - 576px) / (768 - 576)));
+
+         flex-shrink: 0;
+
+         img {
+            width: 100%;
+         }
+      }
+
+      &__pre-header {
+         margin-bottom: calc(20px + (31 - 20) * ((100vw - 576px) / (768 - 576)));
+      }
+
+      &__header {
+         font-size: calc(26px + (36 - 26) * ((100vw - 576px) / (768 - 576)));
+      }
+   }
+}
+
+@media(max-width: 576px) {
+   .step1 {
+      &__container {
+         padding-left: 0;
+         padding-right: 0;
+      }
+   }
+
+   .cash,
+   .thrive {
+      align-items: start;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &__img {
+         width: calc(125px + (240 - 125) * ((100vw - 360px) / (576 - 360)));
+
+         margin-bottom: 0;
+      }
+   }
+
+   .cash,
+   .thrive {
+      border-radius: 0;
+
+      &__pre-header {
+         margin-bottom: 20px;
+         font-size: calc(16px + (20 - 16) * ((100vw - 360px) / (576 - 360)));
+      }
+
+      &__header {
+         font-size: 26px;
+      }
+   }
+}
+
+@media(max-width: 360px) {
+
+   .cash,
+   .thrive {
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &__pre-header {
+         margin-bottom: 20px;
+      }
    }
 }

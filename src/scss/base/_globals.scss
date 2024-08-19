@@ -165,3 +165,11 @@ section {
       font-size: calc(5px + (10 - 5) * ((100vw - 360px) / (1200 - 360)));
    }
 }
+
+@media(max-width: 360px) {
+
+   html,
+   body {
+      font-size: 5px;
+   }
+}

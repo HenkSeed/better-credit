@@ -527,14 +527,19 @@ section {
 }
 .string__burger-img {
   position: absolute;
-  right: 40px;
+  right: 20px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  display: none;
 }
 .string__burger-img svg {
-  fill: black;
+  /* stroke: #8B4513; */
+  stroke: #000;
+}
+.string__burger-img svg:hover {
+  cursor: pointer;
 }
 
 .string p {
@@ -580,6 +585,12 @@ section {
   }
 }
 @media (max-width: 576px) {
+  .string__burger-img {
+    display: block;
+  }
+  .string p {
+    margin-right: 74px;
+  }
   .nav {
     display: none;
   }

@@ -17,9 +17,12 @@
    }
 
    &__info {
-      position: relative;
+      /* position: relative; */
       width: 48.2%;
       margin-right: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
    }
 
    &__header {
@@ -27,10 +30,11 @@
       color: #fff;
       text-transform: uppercase;
       text-align: center;
-      margin-top: 78px;
+      /* margin-top: 78px; */
    }
 
    &__oval {
+      position: relative;
       width: 100%;
       margin-top: 17px;
 
@@ -48,5 +52,46 @@
       font-size: 56px;
       color: #fff;
       text-align: center;
+   }
+}
+
+@media(max-width: 1200px) {
+   .advanced {
+      &__container {
+         padding-top: calc(60px + (120 - 60) * ((100vw - 360px) / (1200 - 360)));
+         padding-bottom: calc(60px + (120 - 60) * ((100vw - 360px) / (1200 - 360)));
+      }
+
+      &__slogan {
+         width: 90%;
+         font-size: calc(27px + (56 - 27) * ((100vw - 768px) / (1200 - 768)));
+      }
+   }
+}
+
+@media(max-width: 768px) {
+   .advanced {
+      &__container {
+         flex-direction: column;
+         align-items: center;
+      }
+
+      &__img {
+         width: calc(320px + (655 - 320) * ((100vw - 360px) / (768 - 360)));
+         margin: 0;
+      }
+
+      &__info {
+         width: calc(320px + (655 - 320) * ((100vw - 360px) / (768 - 360)));
+         margin: 0;
+      }
+
+      &__header {
+         margin-top: 60px;
+      }
+
+      &__slogan {
+         font-size: calc(33px + (55 - 33) * ((100vw - 360px) / (768 - 360)))
+      }
    }
 }

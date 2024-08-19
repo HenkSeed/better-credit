@@ -1,5 +1,7 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
 
+import replaceSVGImages from "./replaceSVGImages.js";
+
 const swiper = new Swiper(".swiper", {
   // Optional parameters
   // direction: 'vertical',
@@ -19,3 +21,5 @@ const swiper = new Swiper(".swiper", {
     clickable: true,
   },
 });
+
+replaceSVGImages();
