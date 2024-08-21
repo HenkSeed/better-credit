@@ -4,16 +4,16 @@
       background-color: #fff;
       flex-direction: column;
       align-items: center;
-      padding-right: 120px;
-      padding-left: 120px;
-      padding-bottom: 240px;
+      padding-right: 12rem;
+      padding-left: 12rem;
+      padding-bottom: 12rem;
+      padding-top: 12rem;
    }
 
    &__pre-header {
       font-size: 19px;
       color: #000;
       text-transform: uppercase;
-      margin-top: 240px;
    }
 
    &__header {
@@ -24,45 +24,31 @@
    }
 }
 
-/* .checked {
-
-   &__item {
-      margin-top: 34px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-   }
-
-   &__text {
-      font-size: 20px;
-      color: #000;
-
-      & span {
-         font-size: 10px;
-      }
-   }
-} */
-
 .card {
 
    background-color: #CCD3E7;
    border-radius: 12px;
-   padding-right: 139px;
-   padding-left: 42px;
-   padding-top: 55px;
-   padding-bottom: 77px;
-   margin-bottom: 48px;
-   margin-top: 80px;
+   padding-right: 13.9rem;
+   padding-left: 4.2rem;
+   padding-top: 5.5rem;
+   padding-bottom: 7.7rem;
+   margin-bottom: 4.8rem;
+   margin-top: 8rem;
 
    width: 100%;
    display: flex;
-   gap: 47px;
+   gap: 4.7rem;
 
-   /*    &__img {
-      margin-left: 42px;
-   } */
+   &__img {
+      width: 43.5%;
+
+      img {
+         width: 100%;
+      }
+   }
 
    &__info {
+      width: 50.5%;
       display: flex;
       flex-direction: column;
    }
@@ -90,12 +76,15 @@
 .funds {
    background-color: #CCD3E7;
    border-radius: 12px;
-   padding: 35px 100px 35px 42px;
+   padding-top: 3.5rem;
+   padding-right: 10rem;
+   padding-bottom: 3.5rem;
+   padding-left: 4.2rem;
 
    width: 100%;
    display: flex;
    align-items: center;
-   gap: 50px;
+   gap: 5rem;
    justify-content: space-between;
 
    &__img {
@@ -150,7 +139,116 @@
    border-radius: 27px;
    margin-top: 32px;
 
-   &:hover {
+   @include media-hover {
       background-color: #3e3e3e;
+   }
+}
+
+@media(max-width: 1200px) {
+   .step2 {
+      &__container {
+         padding-left: calc(60px + (120 - 60) * ((100vw - 768px) / (1200 - 768)));
+
+         padding-right: calc(60px + (120 - 60) * ((100vw - 768px) / (1200 - 768)));
+      }
+   }
+
+   .card {
+
+      padding-right: calc(30px + (139 - 30) * ((100vw - 768px) / (1200 - 768)));
+      padding-left: calc(30px + (42 - 30) * ((100vw - 768px) / (1200 - 768)));
+      padding-top: calc(30px + (55 - 30) * ((100vw - 768px) / (1200 - 768)));
+      padding-bottom: calc(0px + (77 - 0) * ((100vw - 768px) / (1200 - 768)));
+      gap: 4.7rem;
+
+      &__text {
+         font-size: calc(12px + (16 - 12) * ((100vw - 360px) / (1200 - 360)));
+
+         margin-top: calc(18px + (36 - 18) * ((100vw - 360px) / (1200 - 360)));
+      }
+   }
+
+   .card,
+   .funds {
+
+      &__header {
+         /* font-size: 45px; */
+         font-size: calc(36px + (45 - 36) * ((100vw - 768px) / (1200 - 768)));
+         /* margin-top: 22px; */
+      }
+   }
+
+   .funds {
+      /* padding: 3.5rem 10rem 3.5rem 4.2rem; */
+      padding-left: calc(30px + (42 - 30) * ((100vw - 768px) / (1200 - 768)));
+      padding-right: calc(30px + (100 - 30) * ((100vw - 768px) / (1200 - 768)));
+      padding-top: calc(40px + (35 - 40) * ((100vw - 768px) / (1200 - 768)));
+      padding-bottom: calc(40px + (35 - 40) * ((100vw - 768px) / (1200 - 768)));
+
+      &__text {
+         font-size: calc(12px + (20 - 12) * ((100vw - 360px) / (1200 - 360)));
+      }
+   }
+}
+
+@media(max-width: 768px) {
+   .step2 {
+      &__header {
+         font-size: calc(36px + (55 - 36) * ((100vw - 360px) / (768 - 360)));
+
+         padding: 0 20px;
+         text-wrap: balance;
+         text-align: center;
+         display: block;
+         width: 100%;
+      }
+   }
+
+   .card {
+      padding-top: 30px;
+      padding-bottom: 0;
+      padding-right: 30px;
+      padding-left: 30px;
+   }
+
+   .funds {
+      padding-top: 40px;
+      padding-bottom: 40px;
+   }
+}
+
+@media(max-width: 576px) {
+   .step2 {
+      &__container {
+         padding-left: 0;
+         padding-right: 0;
+      }
+   }
+
+   .card {
+      &__info {
+         .checked__item {
+            margin-left: calc(-77px + (0 - -77) * ((100vw - 360px) / (576 - 360)));
+         }
+      }
+
+      .read-more__btn {
+         margin-left: calc(-77px + (0 - -77) * ((100vw - 360px) / (576 - 360)));
+      }
+   }
+
+   .funds {
+      &__text {
+         margin-top: calc(20px + (37 - 20) * ((100vw - 360px) / (576 - 360)));
+      }
+   }
+
+   .card,
+   .funds {
+      align-items: start;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      border-radius: 0;
    }
 }

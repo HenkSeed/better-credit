@@ -3,13 +3,12 @@
    &__container {
       background-color: #000;
       display: flex;
-      padding: 120px 0px 120px 45px;
+      padding: 12rem 0rem 12rem 4.5rem;
 
    }
 
    &__img {
       width: 445px;
-      flex-shrink: 0;
 
       & img {
          width: 100%;
@@ -87,5 +86,64 @@
       display: flex;
       gap: 6px;
       text-transform: uppercase;
+   }
+}
+
+@media(max-width: 1200px) {}
+
+@media(max-width: 992px) {
+   .pocket {
+      &__img {
+         /* flex-shrink: 1; */
+         width: calc(250px + (445 - 250) * ((100vw - 576px) / (992 - 576)));
+         overflow: hidden;
+
+         img {
+            width: auto;
+         }
+      }
+
+      &__info {
+         margin-left: calc(-124px + (20 - -124) * ((100vw - 576px) / (992 - 576)));
+         margin-right: 20px;
+
+         flex-shrink: 0;
+      }
+   }
+}
+
+@media(max-width: 576px) {
+   .pocket {
+      &__container {
+         flex-direction: column;
+         padding: 12rem 20px 12rem 20px;
+      }
+
+      &__img {
+         width: 100%;
+         overflow: auto;
+
+         img {
+            width: 100%;
+         }
+      }
+
+      &__info {
+         margin-left: 0;
+         margin-right: 0;
+         margin-top: 30px;
+      }
+
+      &__link~&__link {
+         margin-top: 32px;
+      }
+
+      &__cards {
+         gap: calc(20px + (40 - 20) * ((100vw - 360px) / (576 - 360)));
+      }
+
+      &__card {
+         padding: 20px 28px 30px;
+      }
    }
 }

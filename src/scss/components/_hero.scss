@@ -65,7 +65,7 @@
       font-size: 16px;
       text-transform: uppercase;
 
-      &:hover {
+      @include media-hover {
          background-color: #2e2e2e;
       }
    }

@@ -11,6 +11,7 @@
    &__header {
       font-size: 56px;
       line-height: 85%;
+      font-weight: 400;
       max-width: 490px;
       text-align: center;
    }
@@ -74,4 +75,26 @@
 
 .swiper-slide {
    width: 350px;
+}
+
+@media(max-width: 1200px) {
+   .empower {
+      &__container {
+         padding-top: calc(60px + (232 - 60) * ((100vw - 360px) / (1200 - 360)));
+
+         padding-bottom: calc(60px + (323 - 60) * ((100vw - 360px) / (1200 - 360)));
+      }
+
+      &__header {
+         font-size: calc(40px + (56 - 40) * ((100vw - 360px) / (1200 - 360)));
+      }
+
+      &__slider {
+         margin-top: calc(60px + (88 - 60) * ((100vw - 360px) / (1200 - 360)));
+      }
+
+      &__pagination {
+         margin-top: calc(40px + (67 - 40) * ((100vw - 360px) / (1200 - 360)));
+      }
+   }
 }

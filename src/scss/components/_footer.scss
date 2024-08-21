@@ -3,20 +3,24 @@
    &__container {
       background-color: #000;
       flex-direction: column;
-      padding: 72px 45px 60px;
+      padding-top: 7.2rem;
+      padding-right: 45px;
+      padding-bottom: 6rem;
+      padding-left: 45px;
    }
 
    &__links {
       max-width: 1160px;
       display: grid;
-      grid-template-columns: 32% 25% 25% auto;
+      grid-template-columns: 30% 24% 24% auto;
       border-bottom: #4D4D4D 1px solid;
+      gap: 15px;
       padding-bottom: 40px;
    }
 
    &__links-item {
       width: 100%;
-      padding-right: 15px;
+      /* padding-right: 15px; */
 
       li~li {
          margin-top: 32px;
@@ -31,12 +35,17 @@
       a {
          display: block;
          font-size: 16px;
+         font-weight: 300;
          line-height: 150%;
          color: #fff;
 
-         &:hover {
+         @include media-hover {
             background-color: #2e2e2e;
          }
+
+         /*          &:hover {
+            background-color: #2e2e2e;
+         } */
       }
    }
 
@@ -55,12 +64,63 @@
    }
 
    &__rule {
+      text-wrap: balance;
+      align-self: self-start;
       display: flex;
 
       p {
          display: block;
          width: 254px;
          align-self: center;
+      }
+   }
+}
+
+@media(max-width: 1200px) {
+   .footer {
+
+      &__container {
+         padding-left: calc(30px + (45 - 30) * ((100vw - 768px) / (1200 - 768)));
+
+         padding-right: calc(30px + (45 - 30) * ((100vw - 768px) / (1200 - 768)));
+      }
+   }
+}
+
+@media(max-width: 768px) {
+   .footer {
+
+      &__container {
+         padding-left: calc(20px + (30 - 20) * ((100vw - 360px) / (768 - 360)));
+
+         padding-right: calc(20px + (30 - 20) * ((100vw - 360px) / (768 - 360)));
+      }
+   }
+}
+
+@media(max-width: 576px) {
+   .footer {
+      &__links {
+         grid-template-columns: repeat(3, 1fr);
+      }
+
+      &__links-item:first-child {
+         grid-column: 1 / span 3;
+         padding: 0;
+
+         p {
+            width: 100%;
+         }
+      }
+   }
+}
+
+@media(max-width: 360px) {
+   .footer {
+
+      &__container {
+         padding-left: 20px;
+         padding-right: 20px;
       }
    }
 }

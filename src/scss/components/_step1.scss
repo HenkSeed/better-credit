@@ -74,6 +74,10 @@
       &:last-child {
          margin-bottom: 30px;
       }
+
+      & img {
+         width: 40px;
+      }
    }
 
    &__text {
@@ -150,9 +154,13 @@
    margin-top: 32px;
    margin-bottom: 40px;
 
-   &:hover {
+   @include media-hover {
       background-color: #3e3e3e;
    }
+
+   /*    &:hover {
+      background-color: #3e3e3e;
+   } */
 }
 
 @media(max-width: 1200px) {
@@ -179,16 +187,14 @@
       &__item {
          margin-top: calc(18px + (34 - 18) * ((100vw - 360px) / (1200 - 360)));
 
-         img {
-            width: calc(32px + (40 - 32) * ((100vw - 576px) / (768 - 576)));
-         }
       }
    }
 
    .step1 {
       &__container {
-         padding-right: calc(60px + (120 - 60) * ((100vw - 768px) / (1200 - 768)));
          padding-left: calc(60px + (120 - 60) * ((100vw - 768px) / (1200 - 768)));
+
+         padding-right: calc(60px + (120 - 60) * ((100vw - 768px) / (1200 - 768)));
       }
    }
 }
@@ -196,7 +202,7 @@
 @media(max-width: 768px) {
    .step1 {
       &__header {
-         font-size: calc(42px + (55 - 42) * ((100vw - 360px) / (768 - 360)));
+         font-size: calc(36px + (55 - 36) * ((100vw - 360px) / (768 - 360)));
       }
    }
 
@@ -225,6 +231,14 @@
          font-size: calc(26px + (36 - 26) * ((100vw - 576px) / (768 - 576)));
       }
    }
+
+   .checked {
+      &__item {
+         img {
+            width: calc(32px + (40 - 32) * ((100vw - 576px) / (768 - 576)));
+         }
+      }
+   }
 }
 
 @media(max-width: 576px) {
@@ -241,15 +255,6 @@
       padding-left: 20px;
       padding-right: 20px;
 
-      &__img {
-         width: calc(125px + (240 - 125) * ((100vw - 360px) / (576 - 360)));
-
-         margin-bottom: 0;
-      }
-   }
-
-   .cash,
-   .thrive {
       border-radius: 0;
 
       &__pre-header {
@@ -259,6 +264,12 @@
 
       &__header {
          font-size: 26px;
+      }
+
+      &__img {
+         width: calc(125px + (240 - 125) * ((100vw - 360px) / (576 - 360)));
+
+         margin-bottom: 0;
       }
    }
 }
