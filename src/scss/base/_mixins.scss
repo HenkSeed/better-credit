@@ -1,4 +1,15 @@
 /* Ислкючение hover-бага на тач-устройствах (button) */
+
+/* Используется в стилях так: 
+   @include media-hover {
+      border-bottom: #000 1px solid;
+   } 
+*/
+/* вместо: 
+   &:hover {
+      border-bottom: #000 1px solid;
+   } 
+*/
 @mixin media-hover() {
    @media (hover: hover) {
       &:hover {
@@ -85,4 +96,3 @@
       }
    }
 }
-

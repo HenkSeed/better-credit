@@ -29,6 +29,51 @@
    }
 }
 
+.dialog {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   padding: 65px 40px 40px;
+   border-radius: 25px;
+   background-image: linear-gradient(#FCD0BA, #eeeeee);
+
+   &::backdrop {
+      background-color: rgb(0 0 0 / 0.8);
+   }
+
+   &__anchor {
+      font-size: 23px;
+      line-height: 130%;
+
+      @include media-hover {
+         border-bottom: #000 1px solid;
+      }
+
+      /*       &:hover {
+         border-bottom: #000 1px solid;
+      } */
+   }
+
+   &__link {
+      text-wrap: nowrap;
+   }
+
+   &__link~&__link {
+      margin-top: 20px;
+   }
+
+   &__cross {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      &:hover {
+         cursor: pointer;
+      }
+   }
+}
+
 .string p {
    /* display: block; */
    font-size: 20px;

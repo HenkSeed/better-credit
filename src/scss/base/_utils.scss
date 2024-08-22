@@ -118,3 +118,9 @@
 .display--block {
    display: block;
 }
+
+/* Добавляется к body для блокировки скролла */
+/* при открытии модального окна */
+.scroll-block {
+   overflow: hidden;
+}
