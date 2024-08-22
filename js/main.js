@@ -1,6 +1,7 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
 
 import replaceSVGImages from "./replaceSVGImages.js";
+import modal from "./modal.js";
 
 const swiper = new Swiper(".swiper", {
   // Optional parameters
@@ -23,3 +24,4 @@ const swiper = new Swiper(".swiper", {
 });
 
 replaceSVGImages();
+modal();
