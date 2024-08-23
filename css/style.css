@@ -457,6 +457,11 @@ section {
   border-radius: 0;
 }
 
+.swiper {
+  overflow: hidden;
+  width: 100vw;
+  max-width: 1200px;
+}
 .swiper__item {
   max-width: 350px;
   margin-right: 25px;
@@ -499,7 +504,13 @@ section {
 }
 
 .swiper-slide {
-  width: 350px;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  /* width: 350px; */
 }
 
 @media (max-width: 1200px) {
@@ -745,9 +756,6 @@ section {
 .dialog__anchor {
   font-size: 23px;
   line-height: 130%;
-  /*       &:hover {
-     border-bottom: #000 1px solid;
-  } */
 }
 @media (hover: hover) {
   .dialog__anchor:hover {
