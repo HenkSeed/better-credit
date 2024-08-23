@@ -14,7 +14,18 @@ const swiper = new Swiper(".swiper", {
   //     prevEl: ".swiper-button-next",
   //   },
 
-  slidesPerView: 3,
+  breakpoints: {
+    360: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+
   //   spaceBetween: 30,
   speed: 600,
   pagination: {

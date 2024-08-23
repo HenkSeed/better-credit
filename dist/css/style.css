@@ -95,6 +95,8 @@ input::-webkit-inner-spin-button {
 html,
 body {
   font-size: 62.5%;
+  /* Отключаем скачок окна при блокировке скроллбара */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -102,6 +104,7 @@ body {
   font-weight: 400;
   font-style: normal;
   color: #000;
+  min-height: 100vh;
 }
 
 body {
@@ -175,6 +178,16 @@ section {
   }
 }
 /* Ислкючение hover-бага на тач-устройствах (button) */
+/* Используется в стилях так: 
+   @include media-hover {
+      border-bottom: #000 1px solid;
+   } 
+*/
+/* вместо: 
+   &:hover {
+      border-bottom: #000 1px solid;
+   } 
+*/
 /* В структуре Block > a > img для создания дополнительного слоя */
 /* над картинкой и изменения его прозрачности при наведении мыши */
 /* Добавлено исключение залипания hover на мобильных */
@@ -303,6 +316,12 @@ section {
 /* Возвращает блок в DOM */
 .display--block {
   display: block;
+}
+
+/* Добавляется к body для блокировки скролла */
+/* при открытии модального окна */
+.scroll-block {
+  overflow: hidden;
 }
 
 .advanced__container {
@@ -702,6 +721,56 @@ section {
   stroke: #000;
 }
 .string__burger-img svg:hover {
+  cursor: pointer;
+}
+
+.dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 65px 40px 40px;
+  border-radius: 25px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FCD0BA), to(#eeeeee));
+  background-image: linear-gradient(#FCD0BA, #eeeeee);
+}
+.dialog::-ms-backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.dialog__anchor {
+  font-size: 23px;
+  line-height: 130%;
+  /*       &:hover {
+     border-bottom: #000 1px solid;
+  } */
+}
+@media (hover: hover) {
+  .dialog__anchor:hover {
+    border-bottom: #000 1px solid;
+  }
+}
+@media (hover: none) {
+  .dialog__anchor:active {
+    border-bottom: #000 1px solid;
+  }
+}
+.dialog__link {
+  text-wrap: nowrap;
+}
+.dialog__link ~ .dialog__link {
+  margin-top: 20px;
+}
+.dialog__cross {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.dialog__cross:hover {
   cursor: pointer;
 }
 
